@@ -38,5 +38,6 @@ $forums = getForums();
 <!-- En-Tête de page -->
 <header class="sticky-top">
     <?php require_once 'nav.php' ?>
+    <?php include 'flash/_flash.message.php' ?>
 </header>
 <!-- Fin -- En-Tête de page -->

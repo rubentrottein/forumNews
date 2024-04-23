@@ -24,7 +24,7 @@ require_once './partials/header.php';
                     <h3>Page Introuvable</h3>
                     <!-- Affichage des messages flash -->
                     <?php include 'partials/flash/_flash.message.php' ?>
-                    <p>Souhaitez-vous revenir <a href="accueil.html">vers l'accueil</a></p>
+                    <p>Souhaitez-vous revenir <a href="index.php">vers l'accueil</a></p>
                 </div>
             </div>
         </div>
