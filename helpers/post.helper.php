@@ -87,3 +87,21 @@ function insertPost(string $title,
 
     return $query->execute() ? $dbh->lastInsertId() : false;
 }
+
+function insertMessage($id_user, $id_post, $content): false|string
+{
+    global $dbh;
+
+    # TEST Ecrire la requete SQL
+    $sql = 'INSERT INTO message (id_user, id_post, content, createdat, updatedat) VALUES (:id_user, :id_post, :content, :created_at, :updated_at)';
+
+    # TEST Complétez la requete
+    $query = $dbh->prepare($sql);
+    $query->bindValue('id_user', $id_user, PDO::PARAM_STR);
+    $query->bindValue('id_post', $id_post, PDO::PARAM_INT);
+    $query->bindValue('content', $content, PDO::PARAM_STR);
+    $query->bindValue('created_at', (new DateTime())->format('Y-m-d H:i:s'));
+    $query->bindValue('updated_at', (new DateTime())->format('Y-m-d H:i:s'));
+
+    return $query->execute() ? $dbh->lastInsertId() : false;
+}

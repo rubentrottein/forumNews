@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     $id_forum = $_POST['id_forum'];
     $id_user = $_SESSION['user']['ID_USER'];
 
-    # TODO Vérification des informations
+    # TEST Vérification des informations
     $errors = [];
     if (empty($title)) {
     # TEST Vérification du titre
@@ -42,7 +42,7 @@ if (!empty($_POST)) {
     # Insertion dans la BDD
     if (empty($errors)) {
         try {
-            # TODO Insertion du Post dans la BDD
+            # DONE Insertion du Post dans la BDD
             $id_post = insertPost($title, $description, $id_forum, $id_user);
 
             if ($id_post) {

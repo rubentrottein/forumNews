@@ -17,6 +17,30 @@ if (!$post) {
     redirect('erreur404.php');
 }
 
+# Initialisation des variables
+$message = null;
+
+# 2. Vérification des données $_POST
+if (!empty($_POST)) {
+
+    # TEST Récupération des informations $_POST
+    $content = $_POST['content'];
+
+    # Insertion dans la BDD
+    try {
+        # DONE Insertion du Post dans la BDD
+        $id_message = insertMessage($_SESSION['user']['ID_USER'], $post['ID_POST'],$content);
+
+        if ($id_message) {
+            addFlash('success', 'Félicitation votre message est en ligne !');
+            redirect("post.php?id=". $post['ID_POST']);
+        }
+    } catch (Exception $exception) {
+        dd($exception->getMessage());
+    }
+}
+
+
 ?>
 
 <!-- Contenu de notre page -->
@@ -48,7 +72,13 @@ if (!$post) {
                             <?= $message['CONTENT'] ?>
                         </div>
                     <?php endforeach ?>
-
+                    <form action="#" method="POST">
+                        <label for="content">Participez à la discussion!</label>
+                        <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                        <button class="btn btn-info text-white p-3">Envoyer un message en tant
+                            que <?= $_SESSION['user']['FIRSTNAME'] . " " .  $_SESSION['user']['LASTNAME'] ?>!
+                        </button>
+                    </form>
                 </div> <!-- ./col -->
             </div> <!-- ./row -->
         </div> <!-- ./container -->
