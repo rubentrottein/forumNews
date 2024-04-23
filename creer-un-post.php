@@ -16,18 +16,35 @@ $title = $description = $id_forum = $id_user = null;
 # 2. Vérification des données $_POST
 if (!empty($_POST)) {
 
-    # TODO Récupération des informations $_POST
+    # TEST Récupération des informations $_POST
+
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $id_forum = $_POST['id_forum'];
+    $id_user = $_SESSION['user']['ID_USER'];
+
     # TODO Vérification des informations
     $errors = [];
+    if (empty($title)) {
+    # TEST Vérification du titre
+        $errors['title'] = "N'oubliez pas votre title.";
+    }
+    if (empty($description)) {
+        # TEST Vérification de la description
+        $errors['description'] = "N'oubliez pas votre description.";
+    }
+    if (empty($id_forum)) {
+        # TEST Vérification du forum
+        $errors['id_forum'] = "N'oubliez pas votre id_forum.";
+    }
 
-    # TODO Vérification du titre
-    # TODO Vérification de la description
-    # TODO Vérification du forum
 
     # Insertion dans la BDD
     if (empty($errors)) {
         try {
             # TODO Insertion du Post dans la BDD
+            $id_post = insertPost($title, $description, $id_forum, $id_user);
+
             if ($id_post) {
                 addFlash('success', 'Félicitation votre article est en ligne !');
                 redirect("post.php?id=$id_post");

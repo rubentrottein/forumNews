@@ -45,7 +45,6 @@ if (!empty($_POST)) {
             redirect('index.php?success=Bienvenue, vous êtes maintenant connecté.');
         } else {
             echo "Souci de connexion ou mot de passe incorrect.";
-            var_dump($_SESSION);
         }
     }
 

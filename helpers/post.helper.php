@@ -74,7 +74,7 @@ function insertPost(string $title,
     global $dbh;
 
     # TEST Ecrire la requete SQL
-    $sql = 'INSERT INTO post (title, description, id_forum, id_user) VALUES (?, ?, ?, ?)';
+    $sql = 'INSERT INTO post (title, description, id_forum, id_user, createdat, updatedat) VALUES (:title, :description, :id_forum, :id_user, :created_at, :updated_at)';
 
     # TEST Complétez la requete
     $query = $dbh->prepare($sql);
