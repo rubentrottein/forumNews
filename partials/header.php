@@ -36,7 +36,7 @@ $forums = getForums();
 <body>
 
 <!-- En-Tête de page -->
-<header>
+<header class="sticky-top">
     <?php require_once 'nav.php' ?>
 </header>
 <!-- Fin -- En-Tête de page -->

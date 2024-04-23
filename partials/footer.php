@@ -1,5 +1,5 @@
 <!-- Pied de page -->
-<footer class="mt-4 pt-4 ">
+<footer class="mt-4 pt-4 fixed-bottom">
     <div class="container-fluid bg-dark">
         <div class="row">
             <div class="col">

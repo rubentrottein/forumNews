@@ -63,13 +63,24 @@ if (!empty($_POST)) {
                     <!-- Information de l'article -->
                     <h4 class="text-muted d-flex justify-content-between align-items-center">
                         <p class="m-0"><small style="font-size: 1rem; margin-right: 1rem;">Publié le</small> <?= $post['CREATEDAT'] ?></p>
+                        <p class="m-0"><small style="font-size: 1rem; margin-right: 1rem;">Rédigé par </small> <?= getUserById($post['ID_USER'])['FIRSTNAME'] . " " . getUserById($post['ID_USER'])['LASTNAME'] ?></p>
                     </h4>
 
                     <hr class="border border-dark mb-5" >
 
                     <?php foreach ($messages as $message): ?>
                         <div class="alert alert-info">
-                            <?= $message['CONTENT'] ?>
+                            <p class="fst-italic fw-light">
+                                "<?= $message['CONTENT'] ?>"
+                            </p>
+                            <hr>
+                            <div class="text-end">
+                                <?= $message['CREATEDAT'] ?>
+                                par
+                                <?php $user = getUserById($message['ID_USER']);
+                            echo $user['FIRSTNAME'] . " " . $user['LASTNAME']?>
+                            </div>
+                            <?php //$user[$message['USER_ID']]['name']; ?>
                         </div>
                     <?php endforeach ?>
                     <form action="#" method="POST">

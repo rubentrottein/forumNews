@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5 class="card-title"><?= $post["TITLE"] ?></h5>
             <p><?= $post['DESCRIPTION'] ?></p>
-            <a href="post.php?id=<?= $post['ID_POST'] ?>" class="btn btn-primary">
+            <a href="post.php?id=<?= $post['ID_POST'] ?>" class="btn btn-primary mx-auto w-100">
                 Consulter les discussions
             </a>
         </div>

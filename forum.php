@@ -36,7 +36,7 @@
 
     <!-- Contenu de la page -->
     <!-- .py-5.bg-light>.container>.row>.col-md-4*6>.card.shadow-sm -->
-    <div class="py-5 bg-light">
+    <div class="py-5" style="background-image : url('https://picsum.photos/1980/1280'); min-height: 70dvh">
         <div class="container">
             <div class="row">
                 <?php foreach ($posts as $post):
